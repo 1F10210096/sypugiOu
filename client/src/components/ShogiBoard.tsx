@@ -13,6 +13,8 @@ const initialBoardData = [
   ['香', '桂', '銀', '金', '王', '金', '銀', '桂', '香'],
 ];
 
+const clickBoardData = Array(9).fill(Array(9).fill(0));
+
 const ShogiBoard = () => {
   const [boardData, setBoardData] = useState(initialBoardData);
   const [selectedPiece, setSelectedPiece] = useState<string | null>(null);
@@ -20,6 +22,11 @@ const ShogiBoard = () => {
 
   const handleSquareClick = (piece: string | null, rowIndex: number, colIndex: number) => {
     // 歩の駒をクリックした場合、候補地を計算して移動
+    console.log(piece);
+    console.log(candidateSquare);
+
+    console.log(candidateSquare?.col);
+    console.log(candidateSquare?.row);
     if (
       piece === '歩' &&
       candidateSquare !== null && // candidateSquareがnullでないことを確認
@@ -27,7 +34,7 @@ const ShogiBoard = () => {
       candidateSquare.col === colIndex // 候補地の列とクリックした場所の列が一致
     ) {
       // 歩を移動する
-      console.log('a')
+      console.log('a');
       const updatedBoardData = [...boardData];
       updatedBoardData[candidateSquare.row][candidateSquare.col] = null; // 候補地をクリア
       updatedBoardData[rowIndex][colIndex] = '歩'; // クリックした場所に歩を移動
@@ -35,7 +42,7 @@ const ShogiBoard = () => {
       setSelectedPiece(null); // selectedPieceをクリア
       setCandidateSquare(null); // candidateSquareをクリア
     } else {
-      console.log('b')
+      console.log('b');
       setSelectedPiece(piece);
       // 歩の場合、候補地を計算して表示
       if (piece === '歩' && rowIndex > 0) {
@@ -46,7 +53,7 @@ const ShogiBoard = () => {
     }
   };
 
-  const handleCandidateClick = (e: React.MouseEvent<HTMLDivElement>) => {
+  const handleCandidateClick = (rowIndex: number, colIndex: number) => {
     console.log('a');
 
     if (selectedPiece === '歩' && candidateSquare !== null) {
@@ -73,12 +80,14 @@ const ShogiBoard = () => {
                 >
                   {piece}
                 </div>
-              ) : null}
-              {candidateSquare !== null &&
-                candidateSquare.row === rowIndex &&
-                candidateSquare.col === colIndex && (
-                  <div className={styles.candidate} onClick={handleCandidateClick} />
-                )}
+              ) : (
+                candidateSquare !== null ? (
+                  <div
+                    className={styles.candidate}
+                    onClick={() => handleCandidateClick(rowIndex, colIndex)}
+                  />
+                ) : null
+              )}
             </div>
           ))}
         </div>
