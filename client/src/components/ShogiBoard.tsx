@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import styles from './index.module.css';
+import { calculateGinCandidateSquares } from './koma/gin';
 import { calculateHishaCandidateSquares } from './koma/hisya';
 import { calculateFuCandidateSquares } from './koma/hu';
 import { calculateKakuCandidateSquares } from './koma/kaku';
 import { calculateKyoshaCandidateSquares } from './koma/kyosya';
+import { calculateOuCandidateSquares } from './koma/ou';
 
 const initialBoardData = [
   ['香', '桂', '銀', '金', '王', '金', '銀', '桂', '香'],
@@ -46,6 +48,12 @@ const ShogiBoard = () => {
       setCandidateSquare(candidateSquares);
     } else if (piece === '香車') {
       const candidateSquares = calculateKyoshaCandidateSquares(rowIndex, colIndex, boardData);
+      setCandidateSquare(candidateSquares);
+    } else if (piece === '銀') {
+      const candidateSquares = calculateGinCandidateSquares(rowIndex, colIndex, boardData);
+      setCandidateSquare(candidateSquares);
+    } else if (piece === '王') {
+      const candidateSquares = calculateOuCandidateSquares(rowIndex, colIndex);
       setCandidateSquare(candidateSquares);
     } else {
       setCandidateSquare([]);
