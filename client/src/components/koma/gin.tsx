@@ -1,12 +1,16 @@
-export function calculateGinCandidateSquares(rowIndex:number, colIndex:number, boardData: (string | null)[][]) {
+export function calculateGinCandidateSquares(
+  rowIndex: number,
+  colIndex: number,
+  boardData: (string | null)[][]
+) {
   const candidateSquares = [];
 
   // Calculate candidate squares in all directions (excluding diagonals)
   const directions = [
     { row: -1, col: 0 }, // Up
     { row: 0, col: -1 }, // Left
-    { row: 0, col: 1 },  // Right
-    { row: 1, col: 0 },  // Down
+    { row: 0, col: 1 }, // Right
+    { row: 1, col: 0 }, // Down
   ];
 
   for (const direction of directions) {

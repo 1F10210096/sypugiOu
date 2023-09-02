@@ -1,14 +1,17 @@
-
 // Function to calculate candidate squares for the "竜馬" (promoted bishop) piece
-export function calculateRyumaCandidateSquares(rowIndex:number, colIndex:number, boardData: (string | null)[][]) {
+export function calculateRyumaCandidateSquares(
+  rowIndex: number,
+  colIndex: number,
+  boardData: (string | null)[][]
+) {
   const candidateSquares = [];
 
   // Calculate candidate squares for the "竜馬" piece's movement
   const directions = [
     { row: -1, col: -1 }, // Up-Left
-    { row: -1, col: 1 },  // Up-Right
-    { row: 1, col: -1 },  // Down-Left
-    { row: 1, col: 1 },   // Down-Right
+    { row: -1, col: 1 }, // Up-Right
+    { row: 1, col: -1 }, // Down-Left
+    { row: 1, col: 1 }, // Down-Right
   ];
 
   for (const direction of directions) {

@@ -1,14 +1,18 @@
-export function calculateRyuouCandidateSquares(rowIndex:number, colIndex:number, boardData: (string | null)[][]) {
+export function calculateRyuouCandidateSquares(
+  rowIndex: number,
+  colIndex: number,
+  boardData: (string | null)[][]
+) {
   const candidateSquares = [];
 
   // Calculate candidate squares for the "竜王" piece's movement
   const directions = [
     { row: -1, col: -1 }, // Up-Left
-    { row: -1, col: 0 },  // Up
-    { row: -1, col: 1 },  // Up-Right
-    { row: 0, col: -1 },  // Left
-    { row: 0, col: 1 },   // Right
-    { row: 1, col: 0 },   // Down
+    { row: -1, col: 0 }, // Up
+    { row: -1, col: 1 }, // Up-Right
+    { row: 0, col: -1 }, // Left
+    { row: 0, col: 1 }, // Right
+    { row: 1, col: 0 }, // Down
   ];
 
   for (const direction of directions) {

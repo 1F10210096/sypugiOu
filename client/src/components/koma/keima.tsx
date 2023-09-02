@@ -1,11 +1,15 @@
 // Function to calculate candidate squares for the "桂馬" (keima) piece
-export function calculateKeimaCandidateSquares(rowIndex:number, colIndex:number, boardData: (string | null)[][]) {
+export function calculateKeimaCandidateSquares(
+  rowIndex: number,
+  colIndex: number,
+  boardData: (string | null)[][]
+) {
   const candidateSquares = [];
 
   // Calculate candidate squares for the "桂馬" piece's unique L-shaped move
   const moves = [
     { row: -2, col: -1 }, // Up-Left
-    { row: -2, col: 1 },  // Up-Right
+    { row: -2, col: 1 }, // Up-Right
   ];
 
   for (const move of moves) {

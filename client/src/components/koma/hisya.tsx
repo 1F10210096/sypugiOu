@@ -1,4 +1,8 @@
-export function calculateHishaCandidateSquares(rowIndex:number, colIndex:number, boardData: (string | null)[][]) {
+export function calculateHishaCandidateSquares(
+  rowIndex: number,
+  colIndex: number,
+  boardData: (string | null)[][]
+) {
   const candidateSquares = [];
 
   // Calculate candidate squares in the vertical direction

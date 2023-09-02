@@ -1,4 +1,4 @@
-export function calculateFuCandidateSquares(rowIndex:number, colIndex:number) {
+export function calculateFuCandidateSquares(rowIndex: number, colIndex: number) {
   const candidateSquares = [];
 
   if (rowIndex > 0) {

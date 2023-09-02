@@ -1,4 +1,4 @@
-export function calculateOuCandidateSquares(rowIndex:number, colIndex:number) {
+export function calculateOuCandidateSquares(rowIndex: number, colIndex: number) {
   const candidateSquares = [];
 
   // Calculate candidate squares in all directions (including diagonals)

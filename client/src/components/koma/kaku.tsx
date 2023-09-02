@@ -1,5 +1,9 @@
 // eslint-disable-next-line complexity
-export function calculateKakuCandidateSquares(rowIndex:number, colIndex:number, boardData: (string | null)[][]) {
+export function calculateKakuCandidateSquares(
+  rowIndex: number,
+  colIndex: number,
+  boardData: (string | null)[][]
+) {
   const candidateSquares = [];
 
   // Calculate candidate squares diagonally
