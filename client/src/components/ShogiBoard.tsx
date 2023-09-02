@@ -4,8 +4,12 @@ import { calculateGinCandidateSquares } from './koma/gin';
 import { calculateHishaCandidateSquares } from './koma/hisya';
 import { calculateFuCandidateSquares } from './koma/hu';
 import { calculateKakuCandidateSquares } from './koma/kaku';
+import { calculateKeimaCandidateSquares } from './koma/keima';
+import { calculateKinCandidateSquares } from './koma/kin';
 import { calculateKyoshaCandidateSquares } from './koma/kyosya';
 import { calculateOuCandidateSquares } from './koma/ou';
+import { calculateRyuouCandidateSquares } from './koma/ryuuou';
+import { calculateToCandidateSquares } from './koma/to';
 
 const initialBoardData = [
   ['香', '桂', '銀', '金', '王', '金', '銀', '桂', '香'],
@@ -54,6 +58,18 @@ const ShogiBoard = () => {
       setCandidateSquare(candidateSquares);
     } else if (piece === '王') {
       const candidateSquares = calculateOuCandidateSquares(rowIndex, colIndex);
+      setCandidateSquare(candidateSquares);
+    } else if (piece === '金') {
+      const candidateSquares = calculateKinCandidateSquares(rowIndex, colIndex, boardData);
+      setCandidateSquare(candidateSquares);
+    } else if (piece === '桂馬') {
+      const candidateSquares = calculateKeimaCandidateSquares(rowIndex, colIndex, boardData);
+      setCandidateSquare(candidateSquares);
+    } else if (piece === 'と') {
+      const candidateSquares = calculateToCandidateSquares(rowIndex, colIndex, boardData);
+      setCandidateSquare(candidateSquares);
+    } else if (piece === '竜王') {
+      const candidateSquares = calculateRyuouCandidateSquares(rowIndex, colIndex, boardData);
       setCandidateSquare(candidateSquares);
     } else {
       setCandidateSquare([]);
