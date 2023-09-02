@@ -10,6 +10,7 @@ import { calculateKyoshaCandidateSquares } from './koma/kyosya';
 import { calculateOuCandidateSquares } from './koma/ou';
 import { calculateRyuouCandidateSquares } from './koma/ryuuou';
 import { calculateToCandidateSquares } from './koma/to';
+import { calculateRyumaCandidateSquares } from './koma/uma';
 
 const initialBoardData = [
   ['香', '桂', '銀', '金', '王', '金', '銀', '桂', '香'],
@@ -70,6 +71,9 @@ const ShogiBoard = () => {
       setCandidateSquare(candidateSquares);
     } else if (piece === '竜王') {
       const candidateSquares = calculateRyuouCandidateSquares(rowIndex, colIndex, boardData);
+      setCandidateSquare(candidateSquares);
+    } else if (piece === '竜馬') {
+      const candidateSquares = calculateRyumaCandidateSquares(rowIndex, colIndex, boardData);
       setCandidateSquare(candidateSquares);
     } else {
       setCandidateSquare([]);
