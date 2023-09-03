@@ -2,7 +2,7 @@
   display: grid;
   height: 630px;
   width: 630px;
-  background-color: #FFCC66;
+  background-color: #ffcc66;
 }
 
 .row {
@@ -24,7 +24,7 @@
   display: grid;
   height: 630px;
   width: 630px;
-  background-color: #FFCC66;
+  background-color: #ffcc66;
 }
 
 .row {
@@ -58,37 +58,42 @@
   position: absolute;
   width: 30px;
   height: 30px;
-  border: 2px solid #00FF00; /* 緑色の枠線 */
+  border: 2px solid #00ff00; /* 緑色の枠線 */
   border-radius: 50%; /* 円形の形状 */
   pointer-events: none; /* クリックイベントを無効化 */
 }
 
-.nk_koma{
-	font-style:normal;
-	position:relative;
+.nk_koma {
+  font-style: normal;
+  position: relative;
 }
-.nk_koma:after{
-	content:"☖";
-	font-size:230%;
-	position:absolute;
-	left:-0.3em;
-	top:-0.4em;
+.nk_koma:after {
+  content: '☖';
+  font-size: 230%;
+  position: absolute;
+  left: -0.3em;
+  top: -0.4em;
 }
 
-.nk_koma_r{
-	font-style:normal;
-	position:relative;
-	display:inline-block;
-	transform: rotate(180deg);
-	-ms-transform: rotate(180deg);
-	-moz-transform: rotate(180deg);
-	-webkit-transform: rotate(180deg);
-	-o-transform: rotate(180deg);
-  }
-.nk_koma_r:after{
-	content:"☖";
-	font-size:160%;
-	position:absolute;
-	left:-0.2em;
-	top:-0.3em;
+.nk_koma_r {
+  font-style: normal;
+  position: relative;
+  display: inline-block;
+  transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+}
+.nk_koma_r:after {
+  content: '☖';
+  font-size: 160%;
+  position: absolute;
+  left: -0.2em;
+  top: -0.3em;
+}
+
+/* index.module.css */
+.highlightedSquare {
+  background-color: yellow; /* Change the background color to your desired highlight color */
 }
