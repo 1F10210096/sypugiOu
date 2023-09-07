@@ -1,19 +1,29 @@
 export function calculateKinCandidateSquares(
   rowIndex: number,
   colIndex: number,
-  boardData: (string | null)[][]
+  boardData: (string | null)[],
+  isSente: boolean
 ) {
   const candidateSquares = [];
 
-  // Calculate candidate squares in all directions (including diagonals)
-  const directions = [
-    { row: -1, col: -1 }, // Up-left
-    { row: -1, col: 0 }, // Up
-    { row: -1, col: 1 }, // Up-right
-    { row: 0, col: -1 }, // Left
-    { row: 0, col: 1 }, // Right
-    { row: 1, col: 0 }, // Down
-  ];
+  // Calculate candidate squares based on player's side
+  const directions = isSente
+    ? [
+        { row: -1, col: -1 }, // Up-left
+        { row: -1, col: 0 }, // Up
+        { row: -1, col: 1 }, // Up-right
+        { row: 0, col: -1 }, // Left
+        { row: 0, col: 1 }, // Right
+        { row: 1, col: 0 }, // Down
+      ]
+    : [
+        { row: 1, col: -1 }, // Down-left
+        { row: 1, col: 0 }, // Down
+        { row: 1, col: 1 }, // Down-right
+        { row: 0, col: -1 }, // Left
+        { row: 0, col: 1 }, // Right
+        { row: -1, col: 0 }, // Up
+      ];
 
   for (const direction of directions) {
     const newRow = rowIndex + direction.row;
