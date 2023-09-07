@@ -30,7 +30,14 @@ const ShogiBoard = () => {
   const [boardData, setBoardData] = useState(initialBoardData);
   const [selectedPiece, setSelectedPiece] = useState<string | null>(null);
   const [candidateSquare, setCandidateSquare] = useState<{ row: number; col: number }[]>([]);
+  const [isExpanded, setIsExpanded] = useState(false);
 
+  const toggleNav = () => {
+      setIsExpanded(!isExpanded);
+  };
+
+
+  
   // eslint-disable-next-line complexity
   const handleSquareClick = (piece: string | null, rowIndex: number, colIndex: number) => {
     // 歩の駒をクリックした場合、候補地を計算して移動
@@ -80,41 +87,46 @@ const ShogiBoard = () => {
     }
   };
 
-  // const handleCandidateClick = (rowIndex: number, colIndex: number) => {
-  //   console.log('a');
-
-  //   if (selectedPiece === '歩' && candidateSquare !== null) {
-  //     // 歩を移動する
-  //     const updatedBoardData = [...boardData];
-  //     updatedBoardData[candidateSquare.row][candidateSquare.col] = '歩';
-  //     updatedBoardData[candidateSquare.row + 1][candidateSquare.col] = null;
-  //     setBoardData(updatedBoardData);
-  //     setSelectedPiece(null);
-  //     setCandidateSquare(null);
-  //   }
-  // };
 
   return (
-    <div className={styles.board}>
-      {boardData.map((row, rowIndex) => (
-        <div key={rowIndex} className={styles.row}>
-          {row.map((piece, colIndex) => (
-            <div key={colIndex} className={styles.square}>
-              {piece !== null ? (
-                <div
-                  className={styles.nk_koma}
-                  onClick={() => handleSquareClick(piece, rowIndex, colIndex)}
-                >
-                  {piece}
-                </div>
-              ) : null}
-            </div>
-          ))}
-        </div>
-      ))}
-      {/* 選択された駒の表示 */}
-      {selectedPiece !== null && <div>選択された駒: {selectedPiece}</div>}
-    </div>
+    <><header className="site-header">
+      <div className="wrapper site-header__wrapper">
+        <a href="#" className="brand">Brand</a>
+        <nav className="nav">
+          <button className="nav__toggle" aria-expanded={isExpanded} onClick={toggleNav} type="button">
+            menu
+          </button>
+          {isExpanded && (
+            <ul className="nav__wrapper">
+              <li className="nav__item"><a href="#">Home</a></li>
+              <li className="nav__item"><a href="#">About</a></li>
+              <li className="nav__item"><a href="#">Services</a></li>
+              <li className="nav__item"><a href="#">Hire us</a></li>
+              <li className="nav__item"><a href="#">Contact</a></li>
+            </ul>
+          )}
+        </nav>
+      </div>
+    </header><div className={styles.board}>
+        {boardData.map((row, rowIndex) => (
+          <div key={rowIndex} className={styles.row}>
+            {row.map((piece, colIndex) => (
+              <div key={colIndex} className={styles.square}>
+                {piece !== null ? (
+                  <div
+                    className={styles.nk_koma}
+                    onClick={() => handleSquareClick(piece, rowIndex, colIndex)}
+                  >
+                    {piece}
+                  </div>
+                ) : null}
+              </div>
+            ))}
+          </div>
+        ))}
+        {/* 選択された駒の表示 */}
+        {selectedPiece !== null && <div>選択された駒: {selectedPiece}</div>}
+      </div></>
   );
 };
 
