@@ -1,4 +1,4 @@
-import { useState } from 'react';
+
 import styles from './index.module.css';
 import { calculateGinCandidateSquares } from './koma/gin';
 import { calculateHishaCandidateSquares } from './koma/hisya';
@@ -70,8 +70,7 @@ const ShogiBoard = () => {
       <LinkOutlined />,
     ),
   ];
-  
-  const App: React.FC = () => {
+
     const [mode, setMode] = useState<'vertical' | 'inline'>('inline');
     const [theme, setTheme] = useState<MenuTheme>('light');
   
